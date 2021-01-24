@@ -41,6 +41,8 @@ set(SOURCES
   core/translations.cpp
   core/systemtrayicon.cpp
   core/localredirectserver.cpp
+  core/latch.cpp
+
   utilities/strutils.cpp
   utilities/envutils.cpp
   utilities/colorutils.cpp
@@ -251,6 +253,12 @@ set(SOURCES
   widgets/loginstatewidget.cpp
   widgets/ratingwidget.cpp
   widgets/resizabletextedit.cpp
+  widgets/widgetfadehelper.cpp
+  widgets/prettyimageview.cpp
+  widgets/prettyimage.cpp
+  widgets/collapsibleinfoheader.cpp
+  widgets/collapsibleinfopane.cpp
+  widgets/infotextview.cpp
 
   osd/osdbase.cpp
   osd/osdpretty.cpp
@@ -296,6 +304,12 @@ set(SOURCES
   organize/organizedialog.cpp
   organize/organizeerrordialog.cpp
 
+  artistbio/artistbioview.cpp
+  artistbio/artistbiofetcher.cpp
+  artistbio/artistbioprovider.cpp
+  artistbio/lastfmartistbio.cpp
+  artistbio/wikipediaartistbio.cpp
+
 )
 
 set(HEADERS
@@ -323,6 +337,7 @@ set(HEADERS
   core/mimedata.h
   core/stylesheetloader.h
   core/localredirectserver.h
+  core/latch.h
 
   engine/enginebase.h
   engine/devicefinders.h
@@ -497,6 +512,12 @@ set(HEADERS
   widgets/ratingwidget.h
   widgets/forcescrollperpixel.h
   widgets/resizabletextedit.h
+  widgets/widgetfadehelper.h
+  widgets/prettyimage.h
+  widgets/prettyimageview.h
+  widgets/collapsibleinfoheader.h
+  widgets/collapsibleinfopane.h
+  widgets/infotextview.h
 
   osd/osdbase.h
   osd/osdpretty.h
@@ -536,6 +557,12 @@ set(HEADERS
   organize/organize.h
   organize/organizedialog.h
   organize/organizeerrordialog.h
+
+  artistbio/artistbiofetcher.h
+  artistbio/artistbioprovider.h
+  artistbio/artistbioview.h
+  artistbio/lastfmartistbio.h
+  artistbio/wikipediaartistbio.h
 
 )
 
