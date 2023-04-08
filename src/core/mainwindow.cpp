@@ -622,6 +622,7 @@ MainWindow::MainWindow(Application *app, std::shared_ptr<SystemTrayIcon> tray_ic
   QObject::connect(ui_->playlist->view(), &PlaylistView::doubleClicked, this, &MainWindow::PlaylistDoubleClick);
   QObject::connect(ui_->playlist->view(), &PlaylistView::PlayItem, this, &MainWindow::PlayIndex);
   QObject::connect(ui_->playlist->view(), &PlaylistView::PlayPause, app_->player(), &Player::PlayPause);
+  QObject::connect(ui_->playlist->view(), &PlaylistView::Clicked, this, &MainWindow::PlaylistClick);
   QObject::connect(ui_->playlist->view(), &PlaylistView::RightClicked, this, &MainWindow::PlaylistRightClick);
   QObject::connect(ui_->playlist->view(), &PlaylistView::SeekForward, app_->player(), &Player::SeekForward);
   QObject::connect(ui_->playlist->view(), &PlaylistView::SeekBackward, app_->player(), &Player::SeekBackward);
@@ -1809,6 +1810,15 @@ void MainWindow::PlaylistMenuHidden() {
   playlist_queue_play_next_->setVisible(true);
   playlist_skip_->setVisible(true);
 
+}
+
+void MainWindow::PlaylistClick(const QModelIndex &index) {
+
+  QModelIndex source_index = index;
+  if (index.model() == app_->playlist_manager()->current()->proxy()) {
+    source_index = app_->playlist_manager()->current()->proxy()->mapToSource(index);
+  }
+  playlist_menu_index_ = source_index;
 }
 
 void MainWindow::PlaylistRightClick(const QPoint global_pos, const QModelIndex &index) {
