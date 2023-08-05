@@ -85,6 +85,7 @@ class GstEnginePipeline : public QObject {
   void RemoveAllBufferConsumers();
 
   // Control the music playback
+  QFuture<void> FlushPipeline();
   QFuture<GstStateChangeReturn> SetState(const GstState state);
   Q_INVOKABLE bool Seek(const qint64 nanosec);
   void SetEBUR128LoudnessNormalizingGain_dB(const double ebur128_loudness_normalizing_gain_db);
@@ -301,7 +302,8 @@ class GstEnginePipeline : public QObject {
   GstElement *pipeline_;
   GstElement *audiobin_;
   GstElement *audiosink_;
-  GstElement *audioqueue_;
+  GstElement *inputaudioqueue_;
+  GstElement *outputaudioqueue_;
   GstElement *audioqueueconverter_;
   GstElement *ebur128_volume_;
   GstElement *volume_;
