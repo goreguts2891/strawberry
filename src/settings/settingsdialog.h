@@ -92,6 +92,7 @@ class SettingsDialog : public QDialog {
     Subsonic,
     Tidal,
     Qobuz,
+    Remote,
   };
 
   enum Role {

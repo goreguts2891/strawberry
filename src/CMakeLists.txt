@@ -212,6 +212,7 @@ set(SOURCES
   settings/appearancesettingspage.cpp
   settings/contextsettingspage.cpp
   settings/notificationssettingspage.cpp
+  settings/networkremotesettingspage.cpp
 
   dialogs/about.cpp
   dialogs/console.cpp
@@ -298,6 +299,13 @@ set(SOURCES
   organize/organizedialog.cpp
   organize/organizeerrordialog.cpp
 
+  networkremote/networkremote.cpp
+  networkremote/tcpserver.cpp
+  networkremote/remotesettings.cpp
+  networkremote/client.cpp
+  networkremote/clientmanager.cpp
+  networkremote/incomingmsg.cpp
+  networkremote/outgoingmsg.cpp
 )
 
 set(HEADERS
@@ -458,6 +466,7 @@ set(HEADERS
   settings/appearancesettingspage.h
   settings/contextsettingspage.h
   settings/notificationssettingspage.h
+  settings/networkremotesettingspage.h
 
   dialogs/about.h
   dialogs/errordialog.h
@@ -540,6 +549,13 @@ set(HEADERS
   organize/organizedialog.h
   organize/organizeerrordialog.h
 
+  networkremote/networkremote.h
+  networkremote/tcpserver.h
+  networkremote/remotesettings.h
+  networkremote/client.h
+  networkremote/clientmanager.h
+  networkremote/incomingmsg.h
+  networkremote/outgoingmsg.h
 )
 
 set(UI
@@ -584,6 +600,7 @@ set(UI
   settings/networkproxysettingspage.ui
   settings/appearancesettingspage.ui
   settings/notificationssettingspage.ui
+  settings/networkremotesettingspage.ui
 
   equalizer/equalizer.ui
   equalizer/equalizerslider.ui
@@ -1121,6 +1138,7 @@ target_link_libraries(strawberry_lib PUBLIC
   ${SINGLEAPPLICATION_LIBRARIES}
   libstrawberry-common
   libstrawberry-tagreader
+  lib-networkremote
 )
 
 if(HAVE_DBUS)

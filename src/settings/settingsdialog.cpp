@@ -65,6 +65,7 @@
 #include "lyricssettingspage.h"
 #include "transcodersettingspage.h"
 #include "networkproxysettingspage.h"
+#include "networkremotesettingspage.h"
 #include "appearancesettingspage.h"
 #include "contextsettingspage.h"
 #include "notificationssettingspage.h"
@@ -141,6 +142,7 @@ SettingsDialog::SettingsDialog(Application *app, OSDBase *osd, QMainWindow *main
   AddPage(Page::Transcoding, new TranscoderSettingsPage(this, this), general);
 #endif
   AddPage(Page::Proxy, new NetworkProxySettingsPage(this, this), general);
+  AddPage(Page::Remote, new NetworkRemoteSettingsPage(this, this), general);
 
   QTreeWidgetItem *iface = AddCategory(tr("User interface"));
   AddPage(Page::Appearance, new AppearanceSettingsPage(this, this), iface);
